@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travek — Próximamente</title>
+  <meta name="description" content="Diseño, impresión y soluciones. Sitio en construcción.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #A6CE39;
+      --bg: #0A0A0A;
+      --surface: #1A1A1A;
+      --text: #FFFFFF;
+      --muted: #757375;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+
+    .card {
+      text-align: center;
+      max-width: 480px;
+    }
+
+    .wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.5rem, 9vw, 4rem);
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .wordmark span { color: var(--accent); }
+
+    .tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid #2A2A2A;
+      border-radius: 999px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.8125rem;
+      color: var(--text);
+      margin-bottom: 2.5rem;
+    }
+    .status .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .contact a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+    .contact a:hover { border-color: var(--accent); }
+    .contact .label {
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <p class="wordmark">TRA<span>VEK</span></p>
+    <p class="tagline">Diseño · Impresión · Soluciones</p>
+
+    <div class="status">
+      <span class="dot"></span>
+      Sitio en construcción
+    </div>
+
+    <div class="contact">
+      <p><span class="label">WhatsApp</span><a href="https://wa.me/56962280646" target="_blank">+56 9 6228 0646</a></p>
+      <p><span class="label">Email</span><a href="mailto:contacto@travek.cl">contacto@travek.cl</a></p>
+    </div>
+  </div>
+
+</body>
+</html>

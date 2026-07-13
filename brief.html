@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto sitio web — Travek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent:    #6E8F1F;
+      --accent-lt: #F2F6E4;
+      --bg:        #FAFAF8;
+      --surface:   #F0F0EC;
+      --text:      #16180F;
+      --muted:     #6B6B68;
+      --border:    #E2E2DC;
+    }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+
+    .nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav .wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav .wordmark span { color: var(--accent); }
+    .nav-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .container {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-header {
+      padding: 4rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-header .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .page-header .subtitle {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    .section:last-child { border-bottom: none; }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .section-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-green  { background: #4C7A20; }
+    .dot-amber  { background: #B46A00; }
+    .dot-gray   { background: var(--border); border: 1px solid var(--muted); }
+
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.625rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-done  { background: #E7F0D6; color: #4C7A20; }
+    .check-pend  { background: #FEF3E2; color: #B46A00; }
+    .check-later { background: var(--surface); color: var(--muted); }
+
+    .checklist li .item-text { flex: 1; }
+    .checklist li .item-text .note {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .step-list { list-style: none; counter-reset: steps; display: flex; flex-direction: column; gap: 1rem; }
+    .step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      font-size: 0.9rem;
+    }
+    .step-list li::before {
+      content: counter(steps);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .step-list li .note {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .timeline { display: flex; flex-direction: column; gap: 1rem; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 1rem;
+      font-size: 0.875rem;
+      align-items: start;
+    }
+    .timeline-item .phase {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.8125rem;
+    }
+
+    .page-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+    .page-footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .nav { padding: 1rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="wordmark">TRA<span>VEK</span></a>
+    <span class="nav-label">Estado del proyecto</span>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <header class="page-header">
+        <p class="eyebrow">Sitio web · travek.cl</p>
+        <h1>Así va tu proyecto</h1>
+        <p class="subtitle">Un resumen de lo que está listo, lo que necesito de ti, y los pasos que siguen. Actualizado el 13 de julio de 2026.</p>
+      </header>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="dot dot-green"></span>
+          Lo que está listo
+        </h2>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <span class="item-text">
+              Dominio travek.cl registrado en NIC.cl
+            </span>
+          </li>
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <span class="item-text">
+              DNS configurado vía Cloudflare, apuntando al hosting
+            </span>
+          </li>
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <span class="item-text">
+              Hosting conectado en Netlify, con travek.cl y www.travek.cl como dominios activos
+            </span>
+          </li>
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <span class="item-text">
+              Propuesta de servicios aprobada: desarrollo del sitio (Módulo 1) + infraestructura (Módulo 2)
+            </span>
+          </li>
+          <li>
+            <span class="check-icon check-done">✓</span>
+            <span class="item-text">
+              Página "próximamente" publicada mientras se prepara el sitio definitivo
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="dot dot-amber"></span>
+          Lo que necesito de ti
+        </h2>
+        <p style="margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted);">Ya tengo el dominio y el hosting funcionando. Para empezar el diseño del sitio, necesito esto:</p>
+        <ol class="step-list">
+          <li>
+            <span class="item-text">
+              <strong>Descripción del negocio:</strong> 1-2 párrafos sobre qué es Travek, qué resuelve y para quién.
+            </span>
+          </li>
+          <li>
+            <span class="item-text">
+              <strong>Servicios a destacar:</strong> lista priorizada de los servicios que quieres mostrar en esta primera versión del sitio.
+            </span>
+          </li>
+          <li>
+            <span class="item-text">
+              <strong>Confirmación de datos de contacto:</strong> los que quieres publicar (WhatsApp, email, otros).
+            </span>
+          </li>
+          <li>
+            <span class="item-text">
+              <strong>Fotos de trabajos:</strong> mínimo 4 a 6 fotos reales de instalaciones, productos o trabajos representativos.
+              <span class="note">Donde no haya foto propia, uso un placeholder con la paleta de marca hasta que tengas material.</span>
+            </span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="dot dot-gray"></span>
+          Pendiente de decisión
+        </h2>
+        <ul class="checklist">
+          <li>
+            <span class="check-icon check-later">·</span>
+            <span class="item-text">
+              <strong>Casillas de correo:</strong> contacto@travek.cl y juansalinas@travek.cl vía MXroute, incluidas en el Módulo 2. Se configuran en paralelo al desarrollo del sitio.
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="dot dot-green"></span>
+          Siguientes pasos
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="phase">Tú me envías</span>
+            <span>Textos y fotos según la lista de arriba</span>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">Correo</span>
+            <span>Configuro las casillas contacto@travek.cl y juansalinas@travek.cl</span>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">Yo desarrollo</span>
+            <span>Landing de una página: estructura, copy, diseño responsive, contacto vía WhatsApp</span>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">Revisión</span>
+            <span>2 rondas de ajustes incluidas</span>
+          </div>
+          <div class="timeline-item">
+            <span class="phase">Publicación</span>
+            <span>El sitio queda publicado en travek.cl</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    Proyecto desarrollado por <a href="https://evo.cl" target="_blank">EVO Creative Lab</a> para Travek · 2026
+  </footer>
+
+</body>
+</html>
