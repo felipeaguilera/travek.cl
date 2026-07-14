@@ -11,13 +11,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent:    #6E8F1F;
-      --accent-lt: #F2F6E4;
-      --bg:        #FAFAF8;
-      --surface:   #F0F0EC;
-      --text:      #16180F;
-      --muted:     #6B6B68;
-      --border:    #E2E2DC;
+      --accent:     #A6CE39;
+      --accent-tint: rgba(166, 206, 57, 0.14);
+      --bg:         #0A0A0A;
+      --surface:    #1A1A1A;
+      --text:       #FFFFFF;
+      --muted:      #757375;
+      --border:     #2A2A2A;
+      --amber:      #E8A33D;
+      --amber-tint: rgba(232, 163, 61, 0.14);
     }
 
     body {
@@ -35,15 +37,14 @@
       align-items: center;
       justify-content: space-between;
     }
-    .nav .wordmark {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      text-decoration: none;
+    .nav-logo {
+      display: block;
     }
-    .nav .wordmark span { color: var(--accent); }
+    .nav-logo img {
+      height: 26px;
+      width: auto;
+      display: block;
+    }
     .nav-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 0.6875rem;
@@ -103,9 +104,9 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .dot-green  { background: #4C7A20; }
-    .dot-amber  { background: #B46A00; }
-    .dot-gray   { background: var(--border); border: 1px solid var(--muted); }
+    .dot-green  { background: var(--accent); }
+    .dot-amber  { background: var(--amber); }
+    .dot-gray   { background: var(--surface); border: 1px solid var(--muted); }
 
     .checklist { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
     .checklist li {
@@ -126,8 +127,8 @@
       flex-shrink: 0;
       margin-top: 2px;
     }
-    .check-done  { background: #E7F0D6; color: #4C7A20; }
-    .check-pend  { background: #FEF3E2; color: #B46A00; }
+    .check-done  { background: var(--accent-tint); color: var(--accent); }
+    .check-pend  { background: var(--amber-tint); color: var(--amber); }
     .check-later { background: var(--surface); color: var(--muted); }
 
     .checklist li .item-text { flex: 1; }
@@ -149,9 +150,9 @@
     .step-list li::before {
       content: counter(steps);
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
       font-size: 0.6875rem;
-      font-weight: 600;
+      font-weight: 700;
       width: 22px;
       height: 22px;
       border-radius: 50%;
@@ -201,7 +202,7 @@
 <body>
 
   <nav class="nav">
-    <a href="/" class="wordmark">TRA<span>VEK</span></a>
+    <a href="/" class="nav-logo"><img src="assets/travek-logo.png" alt="Travek"></a>
     <span class="nav-label">Estado del proyecto</span>
   </nav>
 
@@ -211,7 +212,7 @@
       <header class="page-header">
         <p class="eyebrow">Sitio web · travek.cl</p>
         <h1>Así va tu proyecto</h1>
-        <p class="subtitle">Un resumen de lo que está listo, lo que necesito de ti, y los pasos que siguen. Actualizado el 13 de julio de 2026.</p>
+        <p class="subtitle">Un resumen de lo que está listo, lo que necesito de ti, y los pasos que siguen. Actualizado el 14 de julio de 2026.</p>
       </header>
 
       <section class="section">
@@ -223,19 +224,19 @@
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              Dominio travek.cl registrado en NIC.cl
+              Dominio travek.cl registrado y activo
             </span>
           </li>
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              DNS configurado vía Cloudflare, apuntando al hosting
+              Hosting conectado, con travek.cl y www.travek.cl funcionando
             </span>
           </li>
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              Hosting conectado en Netlify, con travek.cl y www.travek.cl como dominios activos
+              Casillas de correo contacto@travek.cl y juansalinas@travek.cl creadas y activas
             </span>
           </li>
           <li>
@@ -247,7 +248,7 @@
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              Página "próximamente" publicada mientras se prepara el sitio definitivo
+              Página "próximamente" publicada con el logo real, mientras se prepara el sitio definitivo
             </span>
           </li>
         </ul>
@@ -258,7 +259,7 @@
           <span class="dot dot-amber"></span>
           Lo que necesito de ti
         </h2>
-        <p style="margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted);">Ya tengo el dominio y el hosting funcionando. Para empezar el diseño del sitio, necesito esto:</p>
+        <p style="margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted);">Ya tengo el dominio, el hosting y el logo. Para empezar el diseño del sitio, necesito esto:</p>
         <ol class="step-list">
           <li>
             <span class="item-text">
@@ -286,21 +287,6 @@
 
       <section class="section">
         <h2 class="section-title">
-          <span class="dot dot-gray"></span>
-          Pendiente de decisión
-        </h2>
-        <ul class="checklist">
-          <li>
-            <span class="check-icon check-later">·</span>
-            <span class="item-text">
-              <strong>Casillas de correo:</strong> contacto@travek.cl y juansalinas@travek.cl vía MXroute, incluidas en el Módulo 2. Se configuran en paralelo al desarrollo del sitio.
-            </span>
-          </li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">
           <span class="dot dot-green"></span>
           Siguientes pasos
         </h2>
@@ -308,10 +294,6 @@
           <div class="timeline-item">
             <span class="phase">Tú me envías</span>
             <span>Textos y fotos según la lista de arriba</span>
-          </div>
-          <div class="timeline-item">
-            <span class="phase">Correo</span>
-            <span>Configuro las casillas contacto@travek.cl y juansalinas@travek.cl</span>
           </div>
           <div class="timeline-item">
             <span class="phase">Yo desarrollo</span>
