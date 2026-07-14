@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto sitio web — Travek</title>
+  <title>Travek: Estado del proyecto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Exo+2:wght@300;400;500&display=swap" rel="stylesheet">
@@ -183,6 +183,73 @@
       font-size: 0.8125rem;
     }
 
+    details.resource {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    details.resource summary {
+      cursor: pointer;
+      padding: 0.9rem 1.1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+    }
+    details.resource summary::-webkit-details-marker { display: none; }
+    details.resource summary::after {
+      content: '+';
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    details.resource[open] summary::after { content: '\2212'; }
+    details.resource .resource-body {
+      padding: 0.25rem 1.1rem 1.1rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    details.resource .resource-body h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 1rem 0 0.5rem;
+    }
+    details.resource .resource-body h4:first-child { margin-top: 1rem; }
+    details.resource .resource-body ol,
+    details.resource .resource-body ul { margin: 0 0 0.75rem 1.2rem; }
+    details.resource .resource-body li { margin-bottom: 0.4rem; }
+    table.settings {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.825rem;
+      margin: 0.5rem 0 0.75rem;
+    }
+    table.settings td {
+      padding: 0.4rem 0.6rem 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    table.settings td:first-child { color: var(--muted); width: 40%; }
+    details.resource code {
+      font-family: 'Courier New', monospace;
+      background: var(--surface);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.8em;
+    }
+    .security-note {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      border-left: 2px solid var(--accent);
+      padding-left: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
     .page-footer {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -211,14 +278,14 @@
 
       <header class="page-header">
         <p class="eyebrow">Sitio web · travek.cl</p>
-        <h1>Así va tu proyecto</h1>
-        <p class="subtitle">Un resumen de lo que está listo, lo que necesito de ti, y los pasos que siguen. Actualizado el 14 de julio de 2026.</p>
+        <h1>Resumen del proyecto</h1>
+        <p class="subtitle">Avances, pendientes y próximos pasos del desarrollo del sitio. Última actualización: 14 de julio de 2026.</p>
       </header>
 
       <section class="section">
         <h2 class="section-title">
           <span class="dot dot-green"></span>
-          Lo que está listo
+          Avances
         </h2>
         <ul class="checklist">
           <li>
@@ -242,13 +309,13 @@
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              Propuesta de servicios aprobada: desarrollo del sitio (Módulo 1) + infraestructura (Módulo 2)
+              Propuesta de servicios aprobada: desarrollo del sitio (Módulo 1) e infraestructura (Módulo 2)
             </span>
           </li>
           <li>
             <span class="check-icon check-done">✓</span>
             <span class="item-text">
-              Página "próximamente" publicada con el logo real, mientras se prepara el sitio definitivo
+              Página "próximamente" publicada con el logo definitivo, mientras se desarrolla el sitio
             </span>
           </li>
         </ul>
@@ -257,9 +324,9 @@
       <section class="section">
         <h2 class="section-title">
           <span class="dot dot-amber"></span>
-          Lo que necesito de ti
+          Pendientes
         </h2>
-        <p style="margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted);">Ya tengo el dominio, el hosting y el logo. Para empezar el diseño del sitio, necesito esto:</p>
+        <p style="margin-bottom: 1.25rem; font-size: 0.9rem; color: var(--muted);">Para avanzar con el diseño del sitio, se requiere lo siguiente:</p>
         <ol class="step-list">
           <li>
             <span class="item-text">
@@ -268,18 +335,18 @@
           </li>
           <li>
             <span class="item-text">
-              <strong>Servicios a destacar:</strong> lista priorizada de los servicios que quieres mostrar en esta primera versión del sitio.
+              <strong>Servicios a destacar:</strong> lista priorizada de los servicios a mostrar en esta primera versión del sitio.
             </span>
           </li>
           <li>
             <span class="item-text">
-              <strong>Confirmación de datos de contacto:</strong> los que quieres publicar (WhatsApp, email, otros).
+              <strong>Confirmación de datos de contacto:</strong> los que se publicarán en el sitio (WhatsApp, email, otros).
             </span>
           </li>
           <li>
             <span class="item-text">
               <strong>Fotos de trabajos:</strong> mínimo 4 a 6 fotos reales de instalaciones, productos o trabajos representativos.
-              <span class="note">Donde no haya foto propia, uso un placeholder con la paleta de marca hasta que tengas material.</span>
+              <span class="note">Donde no haya foto disponible, se utiliza un placeholder con la paleta de marca hasta contar con material propio.</span>
             </span>
           </li>
         </ol>
@@ -288,15 +355,15 @@
       <section class="section">
         <h2 class="section-title">
           <span class="dot dot-green"></span>
-          Siguientes pasos
+          Próximos pasos
         </h2>
         <div class="timeline">
           <div class="timeline-item">
-            <span class="phase">Tú me envías</span>
-            <span>Textos y fotos según la lista de arriba</span>
+            <span class="phase">De tu parte</span>
+            <span>Textos y fotos según la lista de pendientes</span>
           </div>
           <div class="timeline-item">
-            <span class="phase">Yo desarrollo</span>
+            <span class="phase">Desarrollo</span>
             <span>Landing de una página: estructura, copy, diseño responsive, contacto vía WhatsApp</span>
           </div>
           <div class="timeline-item">
@@ -308,6 +375,43 @@
             <span>El sitio queda publicado en travek.cl</span>
           </div>
         </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">
+          <span class="dot dot-green"></span>
+          Recursos
+        </h2>
+
+        <details class="resource">
+          <summary>Cómo acceder y configurar tu correo</summary>
+          <div class="resource-body">
+            <h4>Opción 1: webmail</h4>
+            <p>Sin instalar nada, desde cualquier navegador.</p>
+            <ol>
+              <li>Entra a <code>chocobo.mxrouting.net/webmail</code></li>
+              <li>Ingresa tu dirección completa (contacto@travek.cl o juansalinas@travek.cl)</li>
+              <li>Ingresa tu contraseña</li>
+            </ol>
+
+            <h4>Opción 2: agregar como cuenta extra en Gmail</h4>
+            <ol>
+              <li>Abre la app de Gmail</li>
+              <li>Foto de perfil → Agregar otra cuenta → Otra (no Google)</li>
+              <li>Ingresa la dirección y la contraseña</li>
+              <li>Si pide datos de servidor, usa la tabla de abajo</li>
+            </ol>
+
+            <h4>Opción 3: cualquier otro cliente de correo</h4>
+            <table class="settings">
+              <tr><td>Servidor entrante (IMAP)</td><td><code>chocobo.mxrouting.net</code>, puerto 993, SSL</td></tr>
+              <tr><td>Servidor saliente (SMTP)</td><td><code>chocobo.mxrouting.net</code>, puerto 465, SSL</td></tr>
+              <tr><td>Usuario</td><td>tu dirección completa</td></tr>
+            </table>
+
+            <p class="security-note">Por seguridad, el usuario y la contraseña de tu cuenta no están publicados en esta página. Se comparten por email y WhatsApp, en canales separados.</p>
+          </div>
+        </details>
       </section>
 
     </div>
